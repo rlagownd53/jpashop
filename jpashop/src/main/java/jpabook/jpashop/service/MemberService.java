@@ -3,7 +3,6 @@ package jpabook.jpashop.service;
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,6 +40,6 @@ public class MemberService {
     }
 
     public Member findOne(Long id) {
-        return memberRepository.fineOne(id);
+        return memberRepository.findOne(id);
     }
 }
