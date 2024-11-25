@@ -54,11 +54,11 @@ public class OrderRepository {
         TypedQuery<Order> query = em.createQuery(jpql, Order.class).setMaxResults(1000);
 
         if(orderSearch.getOrderStatus() != null) {
-            query.setParameter("status", orderSearch.getOrderStatus());
+            query = query.setParameter("status", orderSearch.getOrderStatus());
         }
 
-        if(orderSearch.getMemberName() != null) {
-            query.setParameter("name", orderSearch.getMemberName());
+        if (StringUtils.hasText(orderSearch.getMemberName())) {
+            query = query.setParameter("name", orderSearch.getMemberName());
         }
 
         return query.getResultList();
